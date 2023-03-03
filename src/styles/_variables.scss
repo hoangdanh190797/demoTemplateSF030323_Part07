@@ -1,0 +1,33 @@
+@import url("https://fonts.google.com/specimen/Josefin+Sans");
+
+// Mobile: 375px
+// Desktop: 1440px
+
+// primary
+$bblue: hsl(220, 98%, 61%);
+$lgstart: hsl(192, 100%, 67%);
+$lgend: hsl(280, 87%, 65%);
+
+// neutral
+
+// light theme
+$vlgray: hsl(0, 0%, 98%);
+$vlgblue: hsl(236, 33%, 92%);
+$lgblue: hsl(233, 11%, 84%);
+$dgblue: hsl(236, 9%, 61%);
+$vdgblue: hsl(235, 19%, 35%);
+
+// dark theme
+$vdblue: hsl(235, 21%, 11%);
+$vddblue: hsl(235, 24%, 19%);
+$lgblueEx: hsl(234, 39%, 85%);
+$lgblueHv: hsl(236, 33%, 92%);
+$dgblueEx: hsl(234, 11%, 52%);
+$vdgblueExO: hsl(233, 14%, 35%);
+$vdgblueExT: hsl(237, 14%, 26%);
+
+// font size
+$fontsize: 18px;
+
+// font
+$font: "Josefin Sans", sans-serif;
