@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import todoSlice from './slices/todoSlice'
+import dataSilce from './slices/dataSlice'
 
 export const store = configureStore({
   reducer: {
-    todo : todoSlice,
+    todo : dataSilce,
   },
   devTools: process.env.NODE_ENV !== "production",
 })

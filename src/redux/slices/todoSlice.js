@@ -17,7 +17,7 @@ export const getContent = createAsyncThunk("todo/getContent", async (dataa) => {
 }) 
 
 export const todoSlice = createSlice({
-  name: "todo",
+  name: "todoTest",
   initialState,
   reducers: {
     todoAdd (state, action){
