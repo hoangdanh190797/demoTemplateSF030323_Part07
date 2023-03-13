@@ -4,15 +4,40 @@
     width: 100%;
     height: 760px;
     background-color: $vdblue;
-    .bgHome-top{
-        text-align: center;
-        img{
-            width: 100%;
+    position: relative;
+    img{
+        width: 100%;
+    }
+    .content_parent{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 35%;
+        .content_{
+            display: flex;
+            flex-direction: column;
+            .header_{
+                position: relative;
+                h1{
+                    color: $vlgray;
+                }
+            }
+            .input_{        
+                color: $vlgray;
+                margin-bottom: 20px;
+            }
+            .box_{
+                background-color: $vddblue;
+            }
         }
-        h1{
-            display: block;
-            margin-top: 23%;
-            font-size: $fontsize;
-        }
+    }
+    h2{
+        position: absolute;
+        color: $dgblue;
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-45%,-50%);
+        font-size: $fontsize;
     }
 }

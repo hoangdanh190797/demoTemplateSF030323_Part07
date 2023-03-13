@@ -1,29 +1,28 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 //
 //import API
 
 const initialState = {
-  idDefault: 2,
+  isStatus: "All",
+  idDefault: 1,
   idOn: 0,
-  contentCurrent: {},
   listContent: [
     {
       id: 0,
       content: "test 1",
-      active: true,
+      status: "Active",
     },
     {
       id: 1,
       content: "test 2",
-      active: true,
+      status: "Active",
     },
   ],
   listActive: [],
+  listCompleted: [],
 };
 
-// const addData = (state = initialState, action) =>{
-
-// }
+console.log(initialState.listContent);
 
 //export function AsyncThunk
 export const dataSilce = createSlice({
@@ -35,7 +34,7 @@ export const dataSilce = createSlice({
       let nextContent = {
         id: nextId,
         content: action.payload,
-        active: true,
+        status: "Active",
       };
       return {
         ...state,
@@ -61,46 +60,58 @@ export const dataSilce = createSlice({
       };
     },
     requesComp: (state, action) => {
-      let newL = [...state.listContent];
-      for (let i = 0; i < newL.length; i++) {
-        if (newL[i].id * 1 === state.idOn * 1) {
-          newL[i].active = false;
+      let idNeed = Number(state?.idOn) || 0;
+      const newTodo = state.listContent.find((item) => {
+        if (+item.id === idNeed) {
+          item.status = "Completed";
         }
-      }
-      let obj = state.listContent.filter(
-        (item) => item.id * 1 === state.idOn * 1
+      });
+    },
+    sortActive: (state, action) => {
+      let isStatusCurrent = action.payload;
+      console.log(action.payload);
+      const listActiveNew = state.listContent.filter(
+        (item) => item.status === isStatusCurrent
       );
+      console.log(current(state));
       return {
         ...state,
-        contentCurrent: obj,
-        listContent: newL,
+        listActive: listActiveNew,
       };
     },
-    requesCompp: (state, action) => {
-      let idN = state.idOn * 1;
-      let newLi = [...state.listContent];
-      let objN = {}
-      for (let i = 0; i <= newLi.length; i++) {
-        if (idN === newLi[i].id) {
-          newLi[i].active = false;
-          objN = newLi[i]
-        }
-      }
+    sortCompleted: (state, action) => {
+      let isStatusCurrent = action.payload;
+      console.log(action.payload);
+      const listCompletedNew = state.listContent.filter(
+        (item) => item.status === isStatusCurrent
+      );
+      console.log(current(state));
       return {
         ...state,
-        contentCurrent: objN,
-        listContent: newLi,
+        listCompleted: listCompletedNew,
       };
+    },
+    clearData: (state, action) => {
+      state.listContent = [];
     },
   },
   extraReducers: "",
 });
 
 //export action const {} = dataSlice.actions
-export const { getData, getId, requesDele, requesComp, requesCompp } = dataSilce.actions;
+export const {
+  getData,
+  getId,
+  requesDele,
+  requesComp,
+  sortActive,
+  sortCompleted,
+  clearData,
+} = dataSilce.actions;
 
 //export current data (new data)
 export const selectData = (state) => state.todo.content;
+
 //export list Data
 export const selectListData = (state) => state.todo;
 
