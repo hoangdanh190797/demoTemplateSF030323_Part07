@@ -24,7 +24,8 @@ export default function InputExtra() {
           style={{
             backgroundColor: "hsl(235, 24%, 19%)",
             marginBottom: "30px",
-            margin:'20px 20px'
+            margin:'20px 20px',
+            borderRadius:'100%'
           }}
           type="submit"
           value="+"

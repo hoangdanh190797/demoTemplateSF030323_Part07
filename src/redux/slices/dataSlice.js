@@ -4,18 +4,38 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   isStatus: "All",
-  idDefault: 1,
+  idDefault: 5,
   idOn: 0,
   listContent: [
     {
       id: 0,
-      content: "test 1",
+      content: "Complete Todo App on Frontend Mentor",
       status: "Active",
     },
     {
       id: 1,
-      content: "test 2",
+      content: "Pick up groceries",
       status: "Active",
+    },
+    {
+      id: 2,
+      content: "Read for 1 hour",
+      status: "Active",
+    },
+    {
+      id: 3,
+      content: "10 minites meditation",
+      status: "Active",
+    },
+    {
+      id: 4,
+      content: "Jog around the park 3x",
+      status: "Active",
+    },
+    {
+      id: 5,
+      content: "Completed online Javascript course",
+      status: "Completed",
     },
   ],
   listActive: [],
@@ -50,7 +70,7 @@ export const dataSilce = createSlice({
       };
     },
     requesDele: (state, action) => {
-      let idNeed = state.idOn * 1;
+      let idNeed = action.payload;
       let newList = state.listContent.filter(
         (item) => item.id * 1 !== idNeed * 1
       );
